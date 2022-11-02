@@ -20,9 +20,9 @@ jobs:
     steps:
 #     - uses: actions/checkout@v3
       - name: package springboot app
-        run: mvn package ~/.
+        run: mvn package .github/mywebappdocker/
       - name: build container and deploy
-        run: docker-compose up -d ~/.
+        run: docker-compose up -d .github/mywebappdocker/
       - name: push container to docker hub 
         run: docker push noizebomb/springboot-app-2:1.0.4
        
