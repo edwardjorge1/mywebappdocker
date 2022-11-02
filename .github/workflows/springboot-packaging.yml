@@ -11,9 +11,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
 #     - uses: actions/checkout@v3
-      - name: Build
-        run: mvn package 
-	run: docker-compose up -d
-	run: docker push noizebomb/springboot-app-2:1.0.4
+      - name: package springboot app
+      - run: mvn package
+	
+      - name: build container and deploy
+      - run: docker-compose up -d
+	
+      - name: push container to docker hub 
+      - run: docker push noizebomb/springboot-app-2:1.0.4
        
