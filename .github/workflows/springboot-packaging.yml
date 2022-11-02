@@ -2,27 +2,18 @@
 
 name: Build-package-containerize-upload-CI
 
-# Controls when the action will run. 
 on:
-
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
   workflow_dispatch:
-
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
 #     - uses: actions/checkout@v3
       - name: Build
-        run: |
-          mvn package 
-	  docker-compose up -d
-	  docker push noizebomb/springboot-app-2:1.0.4
+        run: mvn package 
+	run: docker-compose up -d
+	run: docker push noizebomb/springboot-app-2:1.0.4
        
